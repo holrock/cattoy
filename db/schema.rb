@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014111327) do
+ActiveRecord::Schema.define(version: 20161015104508) do
+
+  create_table "cats", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "user_id"
+    t.text     "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cats_on_user_id"
+  end
 
   create_table "toys", force: :cascade do |t|
     t.text     "name"
@@ -22,13 +31,24 @@ ActiveRecord::Schema.define(version: 20161014111327) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",            null: false
+    t.string   "email",                                       null: false
     t.string   "crypted_password"
     t.string   "salt"
-    t.string   "name",             null: false
+    t.string   "name",                                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer  "failed_logins_count",             default: 0
+    t.datetime "lock_expires_at"
+    t.string   "unlock_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token"
   end
 
 end

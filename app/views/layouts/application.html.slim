@@ -12,17 +12,31 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    nav.navbar-static#navigation
-      ul
-        li.navbar-brand
-          a href=root_path
-            | Cattoy
-        li.navbar-collapse
-          | Cattoyは猫が遊んでくれた(くれなかった)おもちゃをみんなで登録していくサイトです
+    section#navbar
+      .container
+        .col-lg-12.col-md-12.col-sm-12
+          nav#navigation
+            ul.navbar-container
+              li.navbar-brand
+                a href=root_path
+                  | Cattoy
+              li.open-menu
+                a href="#navigation" Open
+              li.close-menu
+                a href="#navbar" Close
 
-        div.navbar-collapse.pull-right
-          li.navbar-item
-            a href="" Login
+              div.navbar-collapse.pull-right
+                li.navbar-item
+                  | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
+                - if current_user
+                  li.navbar-item
+                    = link_to current_user.name, edit_user_path(current_user.id)
+                  li.navbar-item
+                    = link_to "ログアウト", :logout, method: :post
+                - else
+                  li.navbar-item
+                    = link_to "登録", new_user_path
+                  li.navbar-item
+                    = link_to "ログイン", :login
 
-    div.container
-      = yield
+    = yield

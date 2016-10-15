@@ -1,20 +1,18 @@
-p#notice = notice
+.container
+  p#notice = notice
 
-h1 Toys
-
-table
-  thead
-    tr
-      th Name
-      th Description
-      th Url
-      th Image url
-      th colspan="3"
-
-  tbody
-    - @toys.each do |toy|
-      tr
-        td %= toy.name
-        td %= toy.description
-        td %= toy.url
-        td %= toy.image_url
+.container
+  h1 Toys
+    
+- @toys.each_slice(4) do |slice|
+  .container
+    - slice.each do |toy|
+      .col-lg-3.col-md-3.col-sm-12
+        a href=toy_path(toy)
+          .thumbnail
+            - if toy.image_url.present?
+              img src=toy.image_url
+            - else
+              = image_tag 'noimage.png'
+            p.thumbnail_text
+              = toy.name
