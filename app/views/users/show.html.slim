@@ -1,0 +1,27 @@
+.container
+  h1
+    = @user.name
+    | さん猫
+    | &nbsp;
+    - if params[:id].to_i == current_user.id
+      small
+        a href=edit_user_path(@user.id) 
+          | 編集
+
+
+- @user.cats.each_slice(4) do |slice|
+  .container
+    - slice.each do |cat|
+      .col-lg-3.col-md-3.col-sm-12
+        .thumbnail
+          - if cat.image_url.present?
+           = image_tag cat.image_url
+          - else
+            = image_tag 'noimage.png'
+          p.thumbnail_text = cat.name
+        - if params[:id].to_i == current_user.id
+          a href=edit_user_cat_path(cat, user_id: current_user.id) 編集
+
+- if params[:id].to_i == current_user.id
+  .container
+    a href=new_user_cat_path(user_id: current_user.id) 猫を登録

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: %i(index new create)
+  before_action :require_login, except: %i(show new create edit update)
+
+  def show
+    @user = current_user
+  end
 
   def new
     @user = User.new

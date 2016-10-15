@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+.thumbnail {
+  width:    100%;
+  margin:   0;
+  padding:  0;
+  position: relative; 
+}
+
+.thumbnail img {
+  width:    100%;
+}
+
+.thumbnail_text {
+  width:    100%;
+  font-size:  100%;
+  text-align: center;
+  bottom:   4px;
+  margin:   0;
+  padding:  0;
+  color:    #fff;
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+}

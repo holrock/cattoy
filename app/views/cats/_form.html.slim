@@ -1,0 +1,16 @@
+- if @cat.errors.any?
+  div#error_explanation
+    h2
+      = pluralize(@cat.errors.count, "error")
+      | prohibited this toy from being saved:
+
+      ul
+        - toy.errors.full_messages.each do |message|
+          li = message
+
+div
+  = f.label :name
+  = f.text_field :name
+div
+  = f.label :image_url
+  = f.text_field :image_url

@@ -1,0 +1,11 @@
+.container
+  h1 情報編集 
+
+  = form_for([:user, @cat]) do |f|
+    = render 'form', f: f
+    input data-role="button" data-disable-with="..." type="submit" value="更新"
+
+  = link_to '登録解除', user_cat_path(@cat, user_id: current_user.id), method: :delete, data: { confirm: "登録内容が消えますがよろしいですか？" }
+  br
+  = link_to '戻る', user_path(current_user)
+
