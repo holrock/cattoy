@@ -1,0 +1,10 @@
+div.col-md-5
+  - if @toy.url.present?
+    a href=@toy.url
+      = @toy.name
+  - else
+    = @toy.name
+
+div.col-md-3
+  - if @toy.image_url.present?
+    img src=@toy.image_url

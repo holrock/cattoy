@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    title Cattoy
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    nav.navbar-static#navigation
+      ul
+        li.navbar-brand
+          a href=root_path
+            | Cattoy
+        li.navbar-collapse
+          | Cattoyは猫が遊んでくれた(くれなかった)おもちゃをみんなで登録していくサイトです
+
+        div.navbar-collapse.pull-right
+          li.navbar-item
+            a href="" Login
+
+    div.container
+      = yield
