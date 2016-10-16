@@ -8,8 +8,8 @@ html
     title Cattoy
     = csrf_meta_tags
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
 
   body
     section#navbar
@@ -18,7 +18,7 @@ html
       nav#navigation
         ul.navbar-container
           li.navbar-brand
-            a href=root_path
+            a.navbar-link href=root_path
               | Cattoy
           li.open-menu
             a href="#navigation" Open
@@ -26,18 +26,18 @@ html
             a href="#navbar" Close
 
           div.navbar-collapse.pull-right
-            li.navbar-item
+            /li.navbar-item
               | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
             - if current_user
               li.navbar-item
-                = link_to current_user.name, user_path(current_user.id)
+                = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'
               li.navbar-item
-                = link_to "ログアウト", :logout, method: :post
+                = link_to "ログアウト", :logout, method: :post, class: 'navbar-link'
             - else
               li.navbar-item
-                = link_to "登録", new_user_path
+                = link_to "登録", new_user_path, class: 'navbar-link'
               li.navbar-item
-                = link_to "ログイン", :login
+                = link_to "ログイン", :login, class: 'navbar-link'
 
     section
       = yield
