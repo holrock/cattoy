@@ -1,8 +1,11 @@
-.container
-  p#notice = notice
+- if notice.present?
+  .container
+    .col-lg-12.col-md-12.col-sm-12
+      p#notice = notice
 
 .container
-  h1 Toys
+  .col-lg-12.col-md-12.col-sm-12
+    p Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
     
 - @toys.each_slice(4) do |slice|
   .container

@@ -13,31 +13,31 @@ html
 
   body
     section#navbar
-      /.container
+      .container
         .col-lg-12.col-md-12.col-sm-12
-      nav#navigation
-        ul.navbar-container
-          li.navbar-brand
-            a.navbar-link href=root_path
-              | Cattoy
-          li.open-menu
-            a href="#navigation" Open
-          li.close-menu
-            a href="#navbar" Close
+          nav#navigation
+            ul.navbar-container
+              li.navbar-brand
+                a.navbar-link href=root_path
+                  | Cattoy
+              li.open-menu
+                a href="#navigation" Open
+              li.close-menu
+                a href="#navbar" Close
 
-          div.navbar-collapse.pull-right
-            /li.navbar-item
-              | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
-            - if current_user
-              li.navbar-item
-                = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'
-              li.navbar-item
-                = link_to "ログアウト", :logout, method: :post, class: 'navbar-link'
-            - else
-              li.navbar-item
-                = link_to "登録", new_user_path, class: 'navbar-link'
-              li.navbar-item
-                = link_to "ログイン", :login, class: 'navbar-link'
+              div.navbar-collapse.pull-right
+                /li.navbar-item
+                  | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
+                - if current_user
+                  li.navbar-item
+                    = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'
+                  li.navbar-item
+                    = link_to "ログアウト", :logout, method: :post, class: 'navbar-link'
+                - else
+                  li.navbar-item
+                    = link_to "登録", new_user_path, class: 'navbar-link1'
+                  li.navbar-item
+                    = link_to "ログイン", :login, class: 'navbar-link1'
 
     section
       = yield
