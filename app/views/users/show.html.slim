@@ -18,7 +18,7 @@
            = image_tag cat.image_url
           - else
             = image_tag 'noimage.png'
-          p.thumbnail_text = cat.name
+          p.thumbnail-text = cat.name
         - if params[:id].to_i == current_user.id
           a href=edit_user_cat_path(cat, user_id: current_user.id) 編集
 
