@@ -4,3 +4,4 @@ bind "unix:///var/tmp/puma.sock"
 threads_count = ENV.fetch('RAILS_MAX_THREADS') { 5 }.to_i
 threads threads_count, threads_count
 environment ENV.fetch('RAILS_ENV') { 'production' }
+pidfile "#{application_path}/tmp/pids/puma.pid"
