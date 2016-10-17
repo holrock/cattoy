@@ -1,6 +1,9 @@
 class CatsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: :show
 
+  def show
+    @cat = Cat.find(params[:id])
+  end
 
   def new
     @cat = Cat.new(user: current_user)

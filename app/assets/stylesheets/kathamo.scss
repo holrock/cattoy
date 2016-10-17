@@ -815,7 +815,8 @@ a[data-role="button"] {
 }
 
 a[data-role="button"]:hover { 
-  background-color: transparent; 
+  //background-color: transparent; 
+  background-color: #fff;
 }
 
 input,

@@ -23,8 +23,14 @@
   .col-sm-12.col-md-12.col-lg-12
     h2 遊んだ猫
 
-- @toy.histories.each_slice(4) do |slice|
+- @toy.histories.where(rate: 1).includes(cat: [:user]).each_slice(12) do |slice|
   .container
     - slice.each do |history|
-      .col-sm-3.col-md-3.col-lg-3
-        = history.cat.name
+      - cat = history.cat
+      .col-sm-1.col-md-1.col-lg-1
+        a href=user_cat_path(cat.user, cat)
+          - if cat.image_url.present?
+            img src=cat.image_url
+          - else
+            = image_tag('noimage.png')
+          = cat.name

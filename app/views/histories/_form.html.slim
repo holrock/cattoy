@@ -17,13 +17,15 @@
 
   .container
     .col-sm-4.col-md-1.col-lg-1 
-      = cat.name
+      a href=user_cat_path(cat.user, cat)
+        = cat.name
 
     .col-sm-8.col-md-3.col-lg-2 
-      - if cat.image_url.present?
-        img src=cat.image_url
-      - else
-        = image_tag('noimage.png')
+      a href=user_cat_path(cat.user, cat)
+        - if cat.image_url.present?
+          img src=cat.image_url
+        - else
+          = image_tag('noimage.png')
 
     .col-sm-12.col-md-3.col-lg-2
       ul.history-rate-list

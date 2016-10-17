@@ -9,16 +9,17 @@
           | 編集
 
 
-- @user.cats.each_slice(4) do |slice|
+- @user.cats.order(:name).each_slice(4) do |slice|
   .container
     - slice.each do |cat|
       .col-lg-3.col-md-3.col-sm-12
-        .thumbnail
-          - if cat.image_url.present?
-           = image_tag cat.image_url
-          - else
-            = image_tag 'noimage.png'
-          p.thumbnail-text = cat.name
+        a href=user_cat_path(@user, cat)
+          .thumbnail
+            - if cat.image_url.present?
+             = image_tag cat.image_url
+            - else
+              = image_tag 'noimage.png'
+            p.thumbnail-text = cat.name
         - if params[:id].to_i == current_user.id
           a href=edit_user_cat_path(cat, user_id: current_user.id) 編集
 
