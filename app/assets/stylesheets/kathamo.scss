@@ -6,6 +6,11 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
+$color1: #fffcca;
+$color2: #55e9bc;
+$color3: #11d3bc;
+$color4: #537780;
+
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', meiryo, sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -602,9 +607,11 @@ th {
 }
 
 body { 
+  background-color: $color1;
   font: 400 100% "Helvetica Neue", Helvetica, sans-serif; 
   line-height: 1.75; 
-  color: #333; 
+  //color: #333; 
+  color: $color4;
 }
 
 h1, 
@@ -1239,7 +1246,8 @@ nav {
   position: relative;
   width: 100%;
   height: 60px;  
-  background-color: #ecf0f1;
+  //background-color: #ecf0f1;
+  background-color: $color2;
 }
 
 nav .navbar-container {
@@ -1392,7 +1400,8 @@ nav *[data-role="button"]:hover {
 
   nav .navbar-item:hover {
     color: #333;
-    background-color: #bdc3c7;
+    //background-color: #bdc3c7;
+    background-color: $color3;
   }
 
   nav .open-menu,

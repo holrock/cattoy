@@ -1,0 +1,29 @@
+= form_for(toy) do |f|
+  .col-sm-12.co-md-12.col-lg-12
+    - if toy.errors.any?
+      #error_explanation
+        h2
+          = pluralize(toy.errors.count, "error")
+          | prohibited this toy from being saved:
+
+        ul
+          - toy.errors.full_messages.each do |message|
+            li = message
+
+  .col-sm-12.co-md-12.col-lg-12
+    = f.label :name
+    = f.text_field :name
+
+    /= f.label :description
+    /= f.text_area :description
+
+  .col-sm-12.co-md-12.col-lg-12
+    = f.label :url
+    = f.text_field :url
+
+  .col-sm-12.co-md-12.col-lg-12
+    = f.label :image_url
+    = f.text_field :image_url
+
+  .col-sm-12.co-md-12.col-lg-12
+    input data-role="button" data-disable-with="..." type="submit" value="更新"

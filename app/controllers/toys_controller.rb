@@ -2,7 +2,7 @@ class ToysController < ApplicationController
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
   def index
-    @toys = Toy.all
+    @toys = Toy.all.order(updated_at: :desc)
   end
 
   def show

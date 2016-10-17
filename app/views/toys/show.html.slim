@@ -1,20 +1,30 @@
 .container
-  - if @toy.url.present?
-    a href=@toy.url
-      = @toy.name
-  - else
-    = @toy.name
+  .col-sm-10.col-md-10.col-lg-10
+    h1
+      - if @toy.url.present?
+        a href=@toy.url
+          = @toy.name
+      - else
+        = @toy.name
+  - if current_user.present?
+    .col-sm-2.col-md-2.col-lg-2
+      a href=new_history_path(toy: @toy.id, rate: 1) data-role="button" type="button" 遊んだ
+      a href=new_history_path(toy: @toy.id, rate: -1) data-role='button' type="button" ダメだった
 
 .container
-  div.col-sm-1.col-md-6.col-lg-6
+  .col-sm-12.col-md-12.col-lg-12
     - if @toy.image_url.present?
-    img src=@toy.image_url
+     img src=@toy.image_url class="toy-image"
+    - else
+     = image_tag 'noimage.png'
+    
 
 .container
-  h2 遊んだ猫
+  .col-sm-12.col-md-12.col-lg-12
+    h2 遊んだ猫
 
 - @toy.histories.each_slice(4) do |slice|
   .container
     - slice.each do |history|
-    div.col-sm-3.col-md-3.col-lg-3
-      = history.cat.name
+      .col-sm-3.col-md-3.col-lg-3
+        = history.cat.name
