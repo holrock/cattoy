@@ -1,4 +1,16 @@
-= form_for(history, remote: true) do |f|
+/ for radio_button
+- namespace = "cat_#{history.cat.id}"
+/ for ajax rewring
+- form_id = "history_form_cat_#{history.cat.id}"
+
+= form_for(history, remote: true, namespace: namespace, html: { id: form_id }) do |f|
+  - if history.errors.any?
+    .container
+      .col-sm-12.col-md-12.col-lg-12
+        ul
+          - history.errors.full_messages.each do |message|
+            li = message
+
   - cat = history.cat
   = f.hidden_field :toy_id
   = f.hidden_field :cat_id

@@ -35,7 +35,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       if @history.save
-        format.html { redirect_to @toy, notice: '更新しました' }
+        format.html { redirect_to @history, notice: '更新しました' }
         format.json { render :show, status: :created, location: @history }
       else
         format.html { render :new }
