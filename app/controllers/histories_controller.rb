@@ -10,33 +10,54 @@ class HistoriesController < ApplicationController
   end
 
   def new
-    toy = Toy.find(params[:toy])
-    @history = History.new(toy_id: toy.id, rate: params[:rate].to_i)
+    @toy = Toy.find(params[:toy])
+    rate = params[:rate].to_i
+    @histories = current_user.cats.includes(:histories).map do |cat|
+      hist = cat.histories.to_a.find { |i| i.toy_id == @toy.id }
+      if hist
+        hist
+      else
+        History.new(toy: @toy, cat: cat, rate: rate)
+      end
+    end
   end
 
   def create
     @history = History.new(history_params)
     unless current_user.cats.exists?(id: @history.cat.id)
       @history.errors.add('mismatch cat and user')
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @histories.errors, status: :unprocessable_entity }
+      end
       return
     end
 
-    if @history.save
-      redirect_to toy_path(@history.toy), notice: '登録しました'
-    else
-      render :new
+    respond_to do |format|
+      if @history.save
+        format.html { redirect_to @toy, notice: '更新しました' }
+        format.json { render :show, status: :created, location: @history }
+      else
+        format.html { render :new }
+        format.json { render json: @histories.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
-  end
-
   def update
+    @history = History.find(params[:id])
+    respond_to do |format|
+      if @history.update(history_params)
+        format.html { redirect_to @history, notice: '更新しました' }
+        format.json { render :show, status: :ok, location: @history }
+      else
+        format.html { render :new }
+        format.json { render json: @history.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-
   end
 
   private

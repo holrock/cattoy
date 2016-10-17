@@ -1,33 +1,35 @@
-= form_for(history) do |f|
+= form_for(history, remote: true) do |f|
+  - cat = history.cat
   = f.hidden_field :toy_id
-  .col-sm-12.co-md-12.col-lg-12
-    - if history.errors.any?
-      #error_explanation
-        h2
-          = pluralize(history.errors.count, "error")
-          | prohibited this history from being saved:
+  = f.hidden_field :cat_id
 
-        ul
-          - history.errors.full_messages.each do |message|
-            li = message
+  .container
+    .col-sm-4.col-md-1.col-lg-1 
+      = cat.name
 
-  .col-sm-12.co-md-12.col-lg-12
-    = f.label :cat_id
-    = f.collection_select :cat_id, current_user.cats.order(:name), :id, :name
+    .col-sm-8.col-md-3.col-lg-2 
+      - if cat.image_url.present?
+        img src=cat.image_url
+      - else
+        = image_tag('noimage.png')
 
-  .col-sm-1.co-md-1.col-lg-1
-    = f.radio_button :rate, 1 
-    = f.label :rate_1, '遊んだ'
-  .col-sm-1.co-md-1.col-lg-1
-    = f.radio_button :rate, 0 
-    = f.label :rate_0, '?'
-  .col-sm-1.co-md-1.col-lg-1
-    = f.radio_button :rate, -1 
-    = f.label 'rate_-1', 'ダメ'
+    .col-sm-12.col-md-3.col-lg-2
+      ul.history-rate-list
+        li
+          = f.radio_button :rate, 1 
+          = f.label :rate_1, '遊んでくれた', class: 'history-rate-label'
 
-  .col-sm-12.co-md-12.col-lg-12
-    = f.label :comment
-    = f.text_area :comment
+        li
+          = f.radio_button :rate, -1 
+          = f.label 'rate_-1', 'ダメだった', class: 'history-rate-label'
 
-  .col-sm-12.co-md-12.col-lg-12
-    input data-role="button" data-disable-with="..." type="submit" value="更新"
+        li
+          = f.radio_button :rate, 0 
+          = f.label :rate_0, '試してない', class: 'history-rate-label'
+
+
+    .col-sm-12.col-md-5.col-lg-5 
+      = f.text_area :comment, placeholder: 'comment', class: 'history-comment'
+
+    .col-sm-1.col-md-1.col-lg-2
+      = submit_tag '登録', data: { role: "button", disable_with: '...' }

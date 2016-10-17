@@ -1,5 +1,50 @@
 .container
-  = render 'form', history: @history
+  .col-sm-12.col-md-6.col-lg-5 
+    = @toy.name
+  .col-sm-12.col-md-6.col-lg-7 
+    - if @toy.image_url.present?
+      img.history-toy-thumbnail src=@toy.image_url
+    - else
+      = image_tag('noimage.png')
+
+- @histories.each_slice(4) do |slice|
+  - slice.each do |history|
+    = render 'form', history: history
+    /= form_for(history, remote: true) do |f|
+      - cat = history.cat
+      = f.hidden_field :toy_id
+      = f.hidden_field :cat_id
+
+      .container
+        .col-sm-4.col-md-1.col-lg-1 
+          = cat.name
+
+        .col-sm-8.col-md-3.col-lg-2 
+          - if cat.image_url.present?
+            img src=cat.image_url
+          - else
+            = image_tag('noimage.png')
+
+        .col-sm-12.col-md-3.col-lg-2
+          ul.history-rate-list
+            li
+              = f.radio_button :rate, 1 
+              = f.label :rate_1, '遊んでくれた', class: 'history-rate-label'
+
+            li
+              = f.radio_button :rate, -1 
+              = f.label 'rate_-1', 'ダメだった', class: 'history-rate-label'
+
+            li
+              = f.radio_button :rate, 0 
+              = f.label :rate_0, '試してない', class: 'history-rate-label'
+
+
+        .col-sm-12.col-md-5.col-lg-5 
+          = f.text_area :comment, placeholder: 'comment', class: 'history-comment'
+
+        .col-sm-1.col-md-1.col-lg-2
+          = submit_tag '登録', data: { role: "button", disable_with: '...' }
 
 .container
   .col-sm-2.col-md-2.col-lg-2
