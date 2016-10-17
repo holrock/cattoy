@@ -33,12 +33,11 @@ set :scm, :git
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :rails_env, 'staging'
 set :migration_role, :db
 set :migration_servers, -> { primary(fetch(:migration_role)) }
 set :conditionally_migrate, true
 set :assets_roles, [:app]
 #set :assets_prefix, 'assets'
-set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
+#set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle')
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
