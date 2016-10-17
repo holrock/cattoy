@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(version: 20161015142921) do
 
   create_table "histories", force: :cascade do |t|
     t.integer  "toy_id",                 null: false
-    t.integer  "cat_id",     default: 0, null: false
-    t.integer  "rate",                   null: false
+    t.integer  "cat_id",                 null: false
+    t.integer  "rate",       default: 0, null: false
     t.string   "comment"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["cat_id"], name: "index_histories_on_cat_id"
-    t.index ["toy_id"], name: "index_histories_on_toy_id"
+    t.index ["toy_id", "cat_id"], name: "index_histories_on_toy_id_and_cat_id", unique: true
   end
 
   create_table "toys", force: :cascade do |t|
