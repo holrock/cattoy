@@ -1,5 +1,6 @@
 class ToysController < ApplicationController
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index, :show]
 
   def index
     @toys = Toy.all.order(updated_at: :desc)
@@ -20,7 +21,7 @@ class ToysController < ApplicationController
 
     respond_to do |format|
       if @toy.save
-        format.html { redirect_to @toy, notice: 'Toy was successfully created.' }
+        format.html { redirect_to @toy, notice: '登録しました' }
         format.json { render :show, status: :created, location: @toy }
       else
         format.html { render :new }
@@ -32,7 +33,7 @@ class ToysController < ApplicationController
   def update
     respond_to do |format|
       if @toy.update(toy_params)
-        format.html { redirect_to @toy, notice: 'Toy was successfully updated.' }
+        format.html { redirect_to @toy, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @toy }
       else
         format.html { render :edit }
@@ -42,9 +43,10 @@ class ToysController < ApplicationController
   end
 
   def destroy
-    @toy.destroy
+    # 未実装
+    #@toy.destroy
     respond_to do |format|
-      format.html { redirect_to toys_url, notice: 'Toy was successfully destroyed.' }
+      format.html { redirect_to toys_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end

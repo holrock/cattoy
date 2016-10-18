@@ -6,6 +6,10 @@
           = @toy.name
       - else
         = @toy.name
+    - if current_user.present?
+      small
+        = link_to '編集', edit_toy_path(@toy)
+
   - if current_user.present?
     .col-sm-2.col-md-2.col-lg-2
       a href=new_history_path(toy: @toy.id, rate: 1) data-role="button" type="button" 遊んだ
@@ -18,19 +22,39 @@
     - else
      = image_tag 'noimage.png'
     
-
 .container
   .col-sm-12.col-md-12.col-lg-12
     h2 遊んだ猫
 
-- @toy.histories.where(rate: 1).includes(cat: [:user]).each_slice(12) do |slice|
+- @toy.histories.where(rate: 1).includes(cat: [:user]).each do |history|
   .container
-    - slice.each do |history|
-      - cat = history.cat
-      .col-sm-1.col-md-1.col-lg-1
-        a href=user_cat_path(cat.user, cat)
-          - if cat.image_url.present?
-            img src=cat.image_url
-          - else
-            = image_tag('noimage.png')
-          = cat.name
+    - cat = history.cat
+    .col-sm-r.col-md-4.col-lg-2
+      a href=user_cat_path(cat.user, cat)
+        - if cat.image_url.present?
+          img src=cat.image_url
+        - else
+          = image_tag('noimage.png')
+    .col-sm-6.col-md-2.col-lg-1
+      a href=user_cat_path(cat.user, cat)
+        = cat.name
+    .col-sm-12.col-md-6.col-lg-9
+      = history.comment
+
+.container
+  .col-sm-12.col-md-12.col-lg-12
+    h2 遊ばなかった猫
+- @toy.histories.where(rate: -1).includes(cat: [:user]).each do |history|
+  .container
+    - cat = history.cat
+    .col-sm-r.col-md-4.col-lg-2
+      a href=user_cat_path(cat.user, cat)
+        - if cat.image_url.present?
+          img src=cat.image_url
+        - else
+          = image_tag('noimage.png')
+    .col-sm-6.col-md-2.col-lg-1
+      a href=user_cat_path(cat.user, cat)
+        = cat.name
+    .col-sm-12.col-md-6.col-lg-9
+      = history.comment

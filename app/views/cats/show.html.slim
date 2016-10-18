@@ -15,7 +15,7 @@
   .container
     - slice.each do |history|
       .col-sm-6.col-md4.col-lg-2
-        a href=toy_path(history.toy)
+        a href=history_path(history)
           .thumbnail
             - if history.toy.image_url.present?
               img src=history.toy.image_url

@@ -44,6 +44,11 @@ class HistoriesController < ApplicationController
     end
   end
 
+  def edit
+    @history = History.find(params[:id])
+    raise 'user mismatched' unless @history.cat.user == current_user
+  end
+
   def update
     @history = History.find(params[:id])
     respond_to do |format|

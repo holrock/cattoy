@@ -9,7 +9,7 @@
 
 - @histories.each_slice(4) do |slice|
   - slice.each do |history|
-    = render 'form', history: history
+    = render 'form', history: history, remote: true
 
 .container
   .col-sm-2.col-md-2.col-lg-2

@@ -23,6 +23,12 @@ class CatsController < ApplicationController
   end
 
   def update
+    @cat = current_user.cats.find(params[:id])
+    if @cat.update(cat_params)
+      redirect_to user_cat_path(current_user, @cat), notice: '更新しました'
+    else
+      render :edit
+    end
   end
 
   def destroy

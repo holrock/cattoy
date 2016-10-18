@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    raise 'user mismatched' unless @user == current_user
     if @user.update(user_params)
       redirect_to root_url, notice: '更新しました'
     else

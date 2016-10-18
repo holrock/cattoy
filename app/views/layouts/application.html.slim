@@ -40,6 +40,11 @@ html
                     = link_to "ログイン", :login, class: 'navbar-link1'
 
     section
+      - if notice.present?
+        .container
+          .col-lg-12.col-md-12.col-sm-12
+            p#notice = notice
+
       = yield
 
     footer

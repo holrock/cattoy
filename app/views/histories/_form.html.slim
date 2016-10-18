@@ -3,7 +3,7 @@
 / for ajax rewring
 - form_id = "history_form_cat_#{history.cat.id}"
 
-= form_for(history, remote: true, namespace: namespace, html: { id: form_id }) do |f|
+= form_for(history, remote: remote, namespace: namespace, html: { id: form_id }) do |f|
   - if history.errors.any?
     .container
       .col-sm-12.col-md-12.col-lg-12
