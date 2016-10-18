@@ -1,2 +1,5 @@
-var html = '<%= j(render('form', history: @history)) %>';
+<% if flash[:notice].present?  %>
+alert('<%= flash[:notice] %>');
+<% end %>
+var html = '<%= j(render('form', history: @history, remote: true)) %>';
 $('<%= "history_form_cat_#{@history.cat.id}" %>').html(s);
