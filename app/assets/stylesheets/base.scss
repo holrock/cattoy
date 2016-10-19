@@ -31,8 +31,23 @@
   max-height: 200px;
 }
 
-.history-comment {
+.history-comment-input {
   width: 100%;
+}
+
+$color1: #fffcca;
+$color2: #55e9bc;
+$color3: #11d3bc;
+$color4: #537780;
+
+.history-row {
+  border-top: solid;
+  border-width: 2px;
+  border-color: $color2;
+
+  & p {
+    margin-top: 0;
+  }
 }
 
 .history-rate-list {
