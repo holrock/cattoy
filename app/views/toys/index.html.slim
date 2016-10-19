@@ -3,7 +3,8 @@
     p キャットイは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
   .col-lg-2.col-md-2.col-sm-2
     - if current_user
-      a href=new_toy_path おもちゃを登録
+      p
+        a href=new_toy_path おもちゃを登録
     
 - @toys.each_slice(4) do |slice|
   .container
