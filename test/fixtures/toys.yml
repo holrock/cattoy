@@ -5,11 +5,9 @@ one:
   description: MyText
   url: MyText
   image_url: MyString
-  text: MyString
 
 two:
   name: MyText
   description: MyText
   url: MyText
   image_url: MyString
-  text: MyString
