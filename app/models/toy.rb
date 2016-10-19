@@ -9,7 +9,7 @@ class Toy < ApplicationRecord
 
   def trim_amazon_url
     if url =~ %r|https?://www.amazon.co.jp/|
-      url =~ %r|(/dp/[^/]+/)|
+      url =~ %r|(/dp/[^/]+)|
       unless $1
         url =~ %r|(/gp/product/[^/]+/)|
       end
