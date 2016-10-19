@@ -5,13 +5,23 @@
     - if current_user
       p
         a href=new_toy_path おもちゃを登録
-    
+
 - @toys.each_slice(4) do |slice|
   .container
     - slice.each do |toy|
       .col-lg-3.col-md-3.col-sm-12
         a href=toy_path(toy)
           .thumbnail
+            - vote = @votes[toy.id]
+            - if vote
+              - if vote[1].nonzero?
+                .thumbnail-upvote
+                  | +
+                  = vote[1]
+              - if vote[2].nonzero?
+                .thumbnail-downvote
+                  | -
+                  = vote[2]
             - if toy.image_url.present?
               img src=toy.image_url
             - else

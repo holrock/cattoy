@@ -1,3 +1,8 @@
+$color1: #fffcca;
+$color2: #55e9bc;
+$color3: #11d3bc;
+$color4: #537780;
+
 .thumbnail {
   width: 100%;
   margin: 0;
@@ -22,6 +27,32 @@
   position: absolute;
 }
 
+.thumbnail-upvote {
+  width: 20%;
+  font-size: 100%;
+  text-align: center;
+  //top: 4px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: rgba(255,0,0,0.4);
+  position: absolute;
+}
+
+.thumbnail-downvote {
+  width: 20%;
+  font-size: 100%;
+  text-align: center;
+  //top: 4px;
+  right: 0px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: rgba(0,0,255,0.4);
+  position: absolute;
+}
+
 .navbar-link {
   display:block;
   width:100%;
@@ -34,11 +65,6 @@
 .history-comment-input {
   width: 100%;
 }
-
-$color1: #fffcca;
-$color2: #55e9bc;
-$color3: #11d3bc;
-$color4: #537780;
 
 .history-row {
   border-top: solid;
@@ -55,6 +81,7 @@ $color4: #537780;
   padding: 0;
   margin: 0;
 }
+
 .history-rate-label {
   display: inline-block;
 }

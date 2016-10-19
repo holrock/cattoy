@@ -4,6 +4,7 @@ class ToysController < ApplicationController
 
   def index
     @toys = Toy.all.order(updated_at: :desc)
+    @votes = History.votes
   end
 
   def show
