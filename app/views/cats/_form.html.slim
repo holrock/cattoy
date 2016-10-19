@@ -1,9 +1,8 @@
 - if @cat.errors.any?
-  .col-sm-12.col-md-12.col-lg-12
-    div#error_explanation
-      ul
-        - @cat.errors.full_messages.each do |message|
-          li = message
+  .col-sm-12.col-md-12.col-lg-12#error_explanation
+    ul
+      - @cat.errors.full_messages.each do |message|
+        li = message
 
 .col-sm-12.col-md-12.col-lg-12
   = f.label :name
