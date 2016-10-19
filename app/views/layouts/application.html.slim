@@ -26,6 +26,11 @@ html
                 a href="#navbar" Close
 
               div.navbar-collapse.pull-right
+                li.navbar-item
+                  a href=toys_path おもちゃ
+                li.navbar-item
+                  a href=histories_path 履歴
+
                 - if current_user
                   li.navbar-item
                     = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'

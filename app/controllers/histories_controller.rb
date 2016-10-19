@@ -2,7 +2,7 @@ class HistoriesController < ApplicationController
   before_action :require_login, except: %i(index show)
 
   def index
-    @histories = History.all
+    @histories = History.order(updated_at: :desc).limit(100)
   end
 
   def show

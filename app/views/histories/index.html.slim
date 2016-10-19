@@ -1,0 +1,29 @@
+.container
+  .col-lg-10.col-md-10.col-sm-10
+    h1 最近の登録
+
+- @histories.each do |history|
+  - cat = history.cat
+  - toy = history.toy
+  .container
+    .col-sm-4.col-md-3.col-lg-2
+      a href=cat_path(cat)
+        .thumbnail
+          - if cat.image_url.present?
+            img src=cat.image_url
+          - else
+            = image_tag('noimage.png')
+          .thumbnail-text
+            = cat.name
+    .col-sm-4.col-md-3.col-lg-2
+      a href=toy_path(toy)
+        .thumbnail
+          - if toy.image_url.present?
+            img src=toy.image_url
+          - else
+            = image_tag('noimage.png')
+          .thumbnail-text
+            = toy.name
+    .col-sm-4.col-md-6.col-lg-8
+      = simple_format(history.comment)
+
