@@ -1,11 +1,8 @@
 - if @cat.errors.any?
-  div#error_explanation
-    h2
-      = pluralize(@cat.errors.count, "error")
-      | prohibited this toy from being saved:
-
+  .col-sm-12.col-md-12.col-lg-12
+    div#error_explanation
       ul
-        - toy.errors.full_messages.each do |message|
+        - @cat.errors.full_messages.each do |message|
           li = message
 
 .col-sm-12.col-md-12.col-lg-12

@@ -26,8 +26,6 @@ html
                 a href="#navbar" Close
 
               div.navbar-collapse.pull-right
-                /li.navbar-item
-                  | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
                 - if current_user
                   li.navbar-item
                     = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'

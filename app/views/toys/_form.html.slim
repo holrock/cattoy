@@ -1,14 +1,9 @@
 = form_for(toy) do |f|
-  .col-sm-12.col-md-12.col-lg-12
-    - if toy.errors.any?
-      #error_explanation
-        h2
-          = pluralize(toy.errors.count, "error")
-          | prohibited this toy from being saved:
-
-        ul
-          - toy.errors.full_messages.each do |message|
-            li = message
+  - if toy.errors.any?
+    .col-sm-12.col-md-12.col-lg-12#error_explanation
+      ul
+        - toy.errors.full_messages.each do |message|
+          li = message
 
   .col-sm-12.col-md-12.col-lg-12
     = f.label :name

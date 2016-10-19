@@ -1,6 +1,7 @@
 .container
   h1 猫を登録
 
-  = form_for([:user, @cat]) do |f|
+  = form_for(@cat) do |f|
     = render 'form', f: f
-    input data-role="button" data-disable-with="..." type="submit" value="登録"
+    .col-sm-12.col-md-12.col-lg-12
+      input data-role="button" data-disable-with="..." type="submit" value="登録"

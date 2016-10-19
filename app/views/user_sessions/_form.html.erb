@@ -1,10 +1,10 @@
 <%= form_tag user_sessions_path, :method => :post do %>
   <div class="field">
-    <%= label_tag :email %>
+    <%= label_tag :email, 'メールアドレス'  %>
     <%= text_field_tag :email %>
   </div>
   <div class="field">
-    <%= label_tag :password %>
+    <%= label_tag :password, 'パスワード' %>
     <%= password_field_tag :password %>
   </div>
   <div class="actions">

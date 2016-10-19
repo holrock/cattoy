@@ -43,3 +43,9 @@
 .history-rate-label {
   display: inline-block;
 }
+
+.field_with_errors {
+  input, select {
+    border: 1px solid red;
+  }
+}

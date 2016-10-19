@@ -1,24 +1,26 @@
 - if @user.errors.any?
-  div#error_explanation
-    h2
-      = pluralize(@user.errors.count, "error")
-      | prohibited this toy from being saved:
-
+  .container
+    .col-sm-12.col-md-12.col-lg-12#error_explanation
       ul
-        - toy.errors.full_messages.each do |message|
+        - @user.errors.full_messages.each do |message|
           li = message
-div
-  = f.label :email
-  = f.text_field :email
 
-div
-  = f.label :name
-  = f.text_field :name
+.container
+  .col-sm-12.col-md-12.col-lg-6
+    = f.label :email
+    = f.text_field :email
 
-div
-  = f.label :password
-  = f.password_field :password
+.container
+  .col-sm-12.col-md-12.col-lg-6
+    = f.label :name
+    = f.text_field :name
 
-div
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+.container
+  .col-sm-12.col-md-12.col-lg-6
+    = f.label :password
+    = f.password_field :password
+
+.container
+  .col-sm-12.col-md-12.col-lg-6
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation

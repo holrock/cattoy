@@ -1288,6 +1288,7 @@ nav .navbar-brand {
 
 nav a {
   color: inherit;
+  display:block;
 }
 nav a:hover {
   color: #333;
@@ -1304,7 +1305,8 @@ nav *[data-role="button"]:hover {
 @media (max-width: 1023px) {
 
   nav li {
-    background-color: #ecf0f1;
+    //background-color: #ecf0f1;
+    background-color: $color2;
   }
 
   nav .navbar-item {

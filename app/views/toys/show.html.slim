@@ -31,13 +31,13 @@
   .container
     - cat = history.cat
     .col-sm-r.col-md-4.col-lg-2
-      a href=user_cat_path(cat.user, cat)
+      a href=cat_path(cat)
         - if cat.image_url.present?
           img src=cat.image_url
         - else
           = image_tag('noimage.png')
     .col-sm-6.col-md-2.col-lg-1
-      a href=user_cat_path(cat.user, cat)
+      a href=cat_path(cat)
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
       = history.comment
@@ -49,13 +49,13 @@
   .container
     - cat = history.cat
     .col-sm-r.col-md-4.col-lg-2
-      a href=user_cat_path(cat.user, cat)
+      a href=cat_path(cat)
         - if cat.image_url.present?
           img src=cat.image_url
         - else
           = image_tag('noimage.png')
     .col-sm-6.col-md-2.col-lg-1
-      a href=user_cat_path(cat.user, cat)
+      a href=cat_path(cat)
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
       = history.comment
