@@ -33,7 +33,7 @@ server '153.126.192.121', user: 'dep', roles: %w(app web db)
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
+set :stage, :production
 
 # Custom SSH Options
 # ==================
