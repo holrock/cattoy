@@ -41,6 +41,10 @@
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
       = simple_format(history.comment)
+      - if cat.user == current_user
+        br
+        .pull-right
+          a href=edit_history_path(history) 編集
 
 .container
   .col-sm-12.col-md-12.col-lg-12
@@ -59,3 +63,7 @@
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
       = simple_format(history.comment)
+      - if cat.user == current_user
+        br
+        .pull-right
+          a href=edit_history_path(history) 編集
