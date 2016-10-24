@@ -1,10 +1,15 @@
 .container
-  .col-lg-10.col-md-10.col-sm-10
-    p キャットイは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
-  .col-lg-2.col-md-2.col-sm-2
-    - if current_user
+  - if current_user
+    .col-lg-2.col-md-2.col-sm-2.pull-right
+        p
+          a href=new_toy_path おもちゃを追加
+  - else
+    .col-lg-10.col-md-10.col-sm-10
       p
-        a href=new_toy_path おもちゃを登録
+        | Cattoy猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
+    .col-lg-2.col-md-2.col-sm-2
+      p
+        a href='pages/about' Cattoyについて
 
 - @toys.each_slice(4) do |slice|
   .container
