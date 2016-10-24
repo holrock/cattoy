@@ -89,3 +89,14 @@ $color4: #537780;
     border: 1px solid red;
   }
 }
+
+footer {
+  margin-bottom: 20px;
+  & .container {
+    font-size: 90%;
+    background-color: $color2;
+  }
+  a {
+    color: #333;
+  }
+}

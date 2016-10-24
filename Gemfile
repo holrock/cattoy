@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'sorcery'
-gem 'slim'
+gem 'slim-rails'
 gem 'exception_notification'
 gem 'slack-notifier'
 

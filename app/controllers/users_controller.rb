@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login, except: %i(show new create edit update)
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def new

@@ -1,13 +1,12 @@
 .container
-  h1
-    = @user.name
-    | さん猫
-    | &nbsp;
-    - if params[:id].to_i == current_user.id
-      small
-        a href=edit_user_path(@user.id) 
-          | 編集
-
+  .col-lg-12.col-md-12.col-sm-12
+    h1
+      = @user.name
+      - if params[:id].to_i == current_user.id
+        | &nbsp;
+        small
+          a href=edit_user_path(@user.id) 
+            | 編集
 
 - @user.cats.order(:name).each_slice(4) do |slice|
   .container
@@ -25,4 +24,5 @@
 
 - if params[:id].to_i == current_user.id
   .container
-    a href=new_cat_path 猫を登録
+    .col-lg-12.col-md-12.col-sm-12
+      a href=new_cat_path 猫を登録
