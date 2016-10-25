@@ -6,7 +6,9 @@ class ToysController < ApplicationController
     tag_id = params[:tag].to_i
     if tag_id.nonzero?
       @tag = ActsAsTaggableOn::Tag.find(tag_id)
-      @toys = Toy.tagged_with(@tag).order(updated_at: :desc)
+      @toys = Toy.joins(:taggings).
+        where('taggings.tag_id = ?', tag_id).
+        order(updated_at: :desc)
     else
       @toys = Toy.all.order(updated_at: :desc)
     end
