@@ -1,22 +1,31 @@
-.container
-  - if current_user
-    .col-lg-2.col-md-2.col-sm-2.pull-right
-        p
-          a href=new_toy_path おもちゃを追加
-  - else
-    .col-lg-10.col-md-10.col-sm-10
+- unless current_user
+  .container
+    .col-lg-10.col-md-6.col-sm-12
       p
         | Cattoy猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
-    .col-lg-2.col-md-2.col-sm-2
+    .col-lg-2.col-md-6.col-sm-12
       p
         a href='pages/about' Cattoyについて
 
-- if @tag.present?
-  .container
-    .col-lg-12.col-md-12.col-sm-12
-      h2
+.container
+  - if @tag.present?
+    .col-lg-10.col-md-10.col-sm-10
+      h3
         = @tag.name
-        | で検索
+        | の検索結果
+  - else
+    .col-lg-2.col-md-2.col-sm-12
+      h3 登録の多いタグ
+    .col-lg-8.col-md-8.col-sm-12
+      ul
+        - @most_used_tags.each do |tag|
+          li.toy-tag-list-item
+            a.toy-tag href=toys_path(tag: tag.id)
+              = tag.name
+  - if current_user
+    .col-lg-2.col-md-2.col-sm-12.pull-right
+        p
+          a href=new_toy_path おもちゃを追加
 
 - @toys.each_slice(4) do |slice|
   .container

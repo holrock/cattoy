@@ -17,16 +17,18 @@
       a href=new_history_path(toy: @toy.id, rate: -1) data-role='button' type="button" ダメだった
 
 .container
-  .col-sm-10.col-md-10.col-lg-10
+  .col-sm-12.col-md-6.col-lg-8
     - if @toy.image_url.present?
      img src=@toy.image_url class="toy-image"
     - else
      = image_tag 'noimage.png'
-  .col-sm-2.col-md-2.col-lg-2
+  .col-sm-12.col-md-6.col-lg-4
     h3 tag
-    - @toy.tags.each do |tag|
-      a.toy-tag href=toys_path(tag: tag.id)
-        = tag.name
+    ul.toy-tag-list
+      - @toy.tags.each do |tag|
+        li.toy-tag-list-item
+          a.toy-tag href=toys_path(tag: tag.id)
+            = tag.name
     
 .container
   .col-sm-12.col-md-12.col-lg-12
