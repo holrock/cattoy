@@ -5,6 +5,8 @@ class Toy < ApplicationRecord
 
   before_save :trim_amazon_url
 
+  acts_as_taggable
+
   private
 
   def trim_amazon_url

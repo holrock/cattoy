@@ -3,7 +3,13 @@ class ToysController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @toys = Toy.all.order(updated_at: :desc)
+    tag_id = params[:tag].to_i
+    if tag_id.nonzero?
+      @tag = ActsAsTaggableOn::Tag.find(tag_id)
+      @toys = Toy.tagged_with(@tag).order(updated_at: :desc)
+    else
+      @toys = Toy.all.order(updated_at: :desc)
+    end
     @votes = History.votes
   end
 
@@ -47,7 +53,7 @@ class ToysController < ApplicationController
     # 未実装
     #@toy.destroy
     respond_to do |format|
-      format.html { redirect_to toys_url, notice: '削除しました' }
+      format.html { redirect_to toys_url, notice: '削除しましてません' }
       format.json { head :no_content }
     end
   end
@@ -60,6 +66,6 @@ class ToysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def toy_params
-      params.require(:toy).permit(:name, :description, :url, :image_url, :text)
+      params.require(:toy).permit(:name, :description, :url, :image_url, :text, :tag_list)
     end
 end

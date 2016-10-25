@@ -11,6 +11,13 @@
       p
         a href='pages/about' Cattoyについて
 
+- if @tag.present?
+  .container
+    .col-lg-12.col-md-12.col-sm-12
+      h2
+        = @tag.name
+        | で検索
+
 - @toys.each_slice(4) do |slice|
   .container
     - slice.each do |toy|

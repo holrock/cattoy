@@ -21,4 +21,8 @@
     = f.text_field :image_url
 
   .col-sm-12.col-md-12.col-lg-12
+    = f.label :tag_list, 'タグ(カンマ区切り)'
+    = f.text_field :tag_list, placeholder: 'ねこじゃらし,ボール,羽'
+
+  .col-sm-12.col-md-12.col-lg-12
     input data-role="button" data-disable-with="..." type="submit" value="更新"
