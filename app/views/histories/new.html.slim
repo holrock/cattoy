@@ -3,7 +3,7 @@
     = @toy.name
   .col-sm-12.col-md-6.col-lg-7 
     - if @toy.image_url.present?
-      img.history-toy-thumbnail src=@toy.image_url
+      img.history-toy-thumbnail src=image_proxy_url(@toy.image_url)
     - else
       = image_tag('noimage.png')
 

@@ -3,7 +3,7 @@
     h2 = @cat.name
   .col-sm-12.col-md6.col-lg-9
     - if @cat.image_url.present?
-      img src=@cat.image_url
+      img src=image_proxy_url(@cat.image_url)
     - else
       = image_tag('noimage.png')
 
@@ -18,7 +18,7 @@
         a href=history_path(history)
           .thumbnail
             - if history.toy.image_url.present?
-              img src=history.toy.image_url
+              img src=image_proxy_url(history.toy.image_url)
             - else
               = image_tag('noimage.pn')
             p.thumbnail-text = history.toy.name

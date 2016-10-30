@@ -13,10 +13,10 @@
     h2 = cat.name
   .col-sm-6.col-md6.col-lg-6
     - if cat.image_url.present?
-      img src=cat.image_url
+      img src=image_proxy_url(cat.image_url)
   .col-sm-6.col-md-6.col-lg-6
     - if toy.image_url.present?
-      img src=toy.image_url
+      img src=image_proxy_url(toy.image_url)
   .col-sm-6.col-md-6.col-lg-6
     h2 = toy.name
     = simple_format(@history.comment)
