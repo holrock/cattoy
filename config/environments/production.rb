@@ -90,4 +90,6 @@ Rails.application.configure do
       channel: "#errors",
       additional_parameters: { mrkdwn: true }
     }
+
+  config.image_host = 'https://tlsimg.cattoy.info'
 end
