@@ -6,21 +6,21 @@
   - cat = history.cat
   - toy = history.toy
   .container.history-row
-    .col-sm-4.col-md-3.col-lg-2
+    .col-sm-6.col-md-3.col-lg-2
       a href=cat_path(cat)
         - if cat.image_url.present?
           img src=cat.image_url
         - else
           = image_tag('noimage.png')
 
-    .col-sm-4.col-md-3.col-lg-2
+    .col-sm-6.col-md-3.col-lg-2
       a href=toy_path(toy)
         - if toy.image_url.present?
           img src=toy.image_url
         - else
           = image_tag('noimage.png')
 
-    .col-sm-4.col-md-6.col-lg-8
+    .col-sm-12.col-md-6.col-lg-8
       - case history.rate
       - when 1
         span.history-upvote
