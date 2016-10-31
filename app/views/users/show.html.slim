@@ -2,7 +2,7 @@
   .col-lg-12.col-md-12.col-sm-12
     h1
       = @user.name
-      - if params[:id].to_i == current_user.id
+      - if current_user && params[:id].to_i == current_user.id
         | &nbsp;
         small
           a href=edit_user_path(@user.id) 
@@ -19,10 +19,10 @@
             - else
               = image_tag 'noimage.png'
             p.thumbnail-text = cat.name
-        - if params[:id].to_i == current_user.id
+        - if current_user && params[:id].to_i == current_user.id
           a href=edit_cat_path(cat) 編集
 
-- if params[:id].to_i == current_user.id
+- if current_user && params[:id].to_i == current_user.id
   .container
     .col-lg-12.col-md-12.col-sm-12
       a href=new_cat_path 猫を登録
