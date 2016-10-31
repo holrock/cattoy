@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ToysTest < ActionDispatch::IntegrationTest
+  include IntegrationTestHelpder
 
   test 'get /toys' do
     get '/toys'
@@ -60,14 +61,5 @@ class ToysTest < ActionDispatch::IntegrationTest
     toy.reload
     assert_equal "t1", toy.name
     assert_redirected_to "/toys/#{toy.id}"
-  end
-
-  private
-
-  def login_user(user)
-    get "/login"
-    assert_response :success
-    post "/user_sessions", params: {email: users(:one).email, password: '12345678'}
-    follow_redirect!
   end
 end

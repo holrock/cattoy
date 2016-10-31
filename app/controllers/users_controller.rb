@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: %i(show new create edit update)
+  before_action :require_login, except: %i(show new create)
 
   def show
     @user = User.find(params[:id])
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, notice: 'ユーザーが作成されました'
+      redirect_to login_url, notice: 'ユーザーが作成されました。ログイン後、猫を登録してください。'
     else
       render :new
     end
@@ -24,9 +24,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    raise 'user mismatched' unless @user == current_user
+    unless @user == current_user
+      redirect_to user_url(current_user)
+      return
+    end
     if @user.update(user_params)
-      redirect_to root_url, notice: '更新しました'
+      redirect_to user_url(@user), notice: '更新しました'
     else
       render :edit
     end
