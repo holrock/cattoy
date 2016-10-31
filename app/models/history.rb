@@ -3,7 +3,7 @@ class History < ApplicationRecord
   belongs_to :cat, inverse_of: :histories
 
   validates :toy, presence: true
-  validates :cat, presence: true
+  validates :cat, presence: true, uniqueness: {scope: :toy, message: "already registered"}
   validates :rate, inclusion: { in: -1..1 }
 
   def self.votes
