@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyText
-  description: MyText
-  url: MyText
-  image_url: MyString
+  name: toy_one_name
+  description: toy_one_desc
+  url: toy_one_url
+  image_url: toy_one_image_url
 
 two:
   name: MyText

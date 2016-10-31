@@ -7,8 +7,11 @@
 one:
   email: hoge@example.com
   name: user1
+  salt: <%= salt = "asdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("12345678", salt) %>
 
 two:
   email: foo@example.com
   name: user2
-
+  salt: <%= salt = "bsdasdastr4325234324sdfds" %>
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("87654321", salt) %>
