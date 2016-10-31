@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: cat1
+  user: one
 
 two:
-  name: MyString
+  name: cat2
+  user: two
