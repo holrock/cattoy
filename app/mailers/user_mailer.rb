@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.reset_password_email.subject
   #
+  #   NOT YET
   def reset_password_email(user)
-    @user = User.find user.id
-    @url = "http://0.0.0.0:3000" + edit_password_reset_path(@user.reset_password_token)
-    mail(to: user.email,  subject: "パスワードリセットしました")
+    #@user = User.find user.id
+    #@url = "https://www.cattoy.info/" + edit_password_reset_path(@user.reset_password_token)
+    #mail(to: user.email,  subject: "パスワードリセットしました")
   end
 end
