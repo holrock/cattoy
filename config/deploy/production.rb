@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :rails_env, 'production'
-server '153.126.192.121', user: 'dep', roles: %w(app web db)
+server 'www.cattoy.info', user: 'dep', roles: %w(app web db)
 
 
 # role-based syntax
