@@ -27,9 +27,9 @@ html
 
               div.navbar-collapse.pull-right
                 li.navbar-item
-                  a href=toys_path おもちゃ
+                  a.navbar-link href=toys_path おもちゃ
                 li.navbar-item
-                  a href=histories_path 履歴
+                  a.navbar-link href=histories_path 履歴
 
                 - if current_user
                   li.navbar-item
@@ -38,9 +38,9 @@ html
                     = link_to "ログアウト", :logout, method: :post, class: 'navbar-link'
                 - else
                   li.navbar-item
-                    = link_to "登録", new_user_path, class: 'navbar-link1'
+                    = link_to "登録", new_user_path, class: 'navbar-link'
                   li.navbar-item
-                    = link_to "ログイン", :login, class: 'navbar-link1'
+                    = link_to "ログイン", :login, class: 'navbar-link'
 
     section
       - if notice.present?
@@ -52,7 +52,8 @@ html
 
     footer
       .container
-        .col-lg-2.col-md-2.col-sm-2
+        .col-lg-10.col-md-9.col-sm-6
           a href='/' トップページ
-        .col-lg-2.col-md-2.col-sm-2.pull-right
-          a href='/pages/about' Cattoyについて
+        .col-lg-2.col-md-3.col-sm-6
+          .pull-right
+            a href='/pages/about' Cattoyについて

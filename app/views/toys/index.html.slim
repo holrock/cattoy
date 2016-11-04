@@ -2,12 +2,13 @@
   .container
     .col-lg-10.col-md-6.col-sm-12
       p
-        | Cattoy猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
+        | Cattoyは猫が遊んでくれた(くれなかった)おもちゃを記録していくサービスです
     .col-lg-2.col-md-6.col-sm-12
-      p
-        a href='pages/about' Cattoyについて
-      p
-        a href='pages/usage' つかいかた
+      .well.
+        p
+          a.well-link href='pages/about' Cattoyについて
+        p
+          a.well-link href='pages/usage' つかいかた
 
 .container
   - if @tag.present?
@@ -24,7 +25,8 @@
               = tag.name
   - if current_user
     .col-lg-2.col-md-2.col-sm-12.pull-right
-      a href=new_toy_path おもちゃを追加
+      .well
+        a.well-link href=new_toy_path おもちゃを追加
 
 - @toys.each_slice(4) do |slice|
   .container
