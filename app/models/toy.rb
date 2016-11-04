@@ -7,6 +7,10 @@ class Toy < ApplicationRecord
 
   acts_as_taggable
 
+  def to_uri
+    RDF::URI.new("#{Const::RDF_HOST}/toys/#{id}")
+  end
+
   private
 
   def trim_amazon_url
