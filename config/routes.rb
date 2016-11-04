@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', as: :login
   post 'logout' => 'user_sessions#destroy', as: :logout
   get '/pages/about', to: 'pages#about'
+  get '/pages/usage', to: 'pages#usage'
 end
