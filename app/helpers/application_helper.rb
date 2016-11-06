@@ -16,7 +16,7 @@ module ApplicationHelper
 
   SrcScrubber = Loofah::Scrubber.new do |node|
     if node.name == 'img'
-      node['src'] = build_image_proxy_url(node['src'])
+      node['src'] = build_image_proxy_url(node['src'], w: 240, h: 240)
     end
   end
 
