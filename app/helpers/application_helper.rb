@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   TAGS = %w(a img).freeze
-  ATTRS = %w(href src width height).freeze
+  ATTRS = %w(href src).freeze
 
   def comment_format(history)
     sanitized = sanitize(history.comment, tags: TAGS, attributes: ATTRS)
