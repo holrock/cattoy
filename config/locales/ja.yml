@@ -223,3 +223,10 @@ ja:
       user_session:
         email: メールアドレス
         password: パスワード
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."

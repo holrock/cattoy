@@ -7,6 +7,8 @@ class Toy < ApplicationRecord
 
   acts_as_taggable
 
+  paginates_per 40
+
   def to_uri
     RDF::URI.new("#{Const::RDF_HOST}/toys/#{id}")
   end

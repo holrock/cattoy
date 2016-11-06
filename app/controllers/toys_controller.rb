@@ -10,7 +10,7 @@ class ToysController < ApplicationController
         where('taggings.tag_id = ?', tag_id).
         order(updated_at: :desc)
     else
-      @toys = Toy.limit(40).order(updated_at: :desc)
+      @toys = Toy.order(updated_at: :desc).page(params[:page])
     end
     @votes = History.votes
     @most_used_tags = ActsAsTaggableOn::Tag.most_used(10)

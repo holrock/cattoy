@@ -133,3 +133,18 @@ footer {
   color: #333;
   text-decoration: underline;
 }
+
+nav.pagination {
+  display: flex;
+  justify-content: center;
+  background-color: $color1;
+}
+
+.page, .next, .last, .prev, .first {
+  padding: 15px;
+  color: #333;
+}
+
+.page.current {
+  background-color: $color2;
+}

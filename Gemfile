@@ -38,6 +38,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'rdf'
 gem 'rdf-turtle'
 gem 'rdf-vocab'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
