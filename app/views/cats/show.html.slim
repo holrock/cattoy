@@ -18,7 +18,7 @@
         a href=history_path(history)
           .thumbnail
             - if history.toy.image_url.present?
-              img src=image_proxy_url(history.toy.image_url)
+              img src=image_proxy_url(history.toy.image_url, w: 240, h: 240)
             - else
               = image_tag('noimage.png')
             p.thumbnail-text = history.toy.name
