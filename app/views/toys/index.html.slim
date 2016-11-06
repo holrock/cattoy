@@ -45,7 +45,7 @@
                   | -
                   = vote[2]
             - if toy.image_url.present?
-              img src=image_proxy_url(toy.image_url)
+              img src=image_proxy_url(toy.image_url, w: 240, h: 240)
             - else
               = image_tag 'noimage.png'
             p.thumbnail-text = toy.name
