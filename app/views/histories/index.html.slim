@@ -38,9 +38,11 @@
           = cat.user.name
       br
       = comment_format(history)
-      - if cat.user == current_user
-        br
-        .pull-right
+      br
+      .pull-right
+        a href=history_path(history) Permalink
+        - if cat.user == current_user
+          | &nbsp;/&nbsp;
           a href=edit_history_path(history)
            | 編集
 
