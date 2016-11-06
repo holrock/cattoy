@@ -5,7 +5,7 @@ module ApplicationHelper
     digest = OpenSSL::HMAC.hexdigest('sha1', Rails.application.secrets.omac_key, url)
     size = nil
     if w && h
-      size = "&widt=#{w}&h=#{h}"
+      size = "&w=#{w}&h=#{h}"
     end
     "#{IMAGE_HOST}/#{digest}?url=#{Rack::Utils.escape(url)}#{size}"
   end
