@@ -46,7 +46,7 @@
       a href=cat_path(cat)
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
-      = simple_format(history.comment)
+      = comment_format(history)
       - if cat.user == current_user
         br
         .pull-right
@@ -68,7 +68,7 @@
       a href=cat_path(cat)
         = cat.name
     .col-sm-12.col-md-6.col-lg-9
-      = simple_format(history.comment)
+      = comment_format(history)
       - if cat.user == current_user
         br
         .pull-right

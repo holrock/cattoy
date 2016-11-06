@@ -18,5 +18,6 @@
     - if toy.image_url.present?
       img src=image_proxy_url(toy.image_url)
   .col-sm-6.col-md-6.col-lg-6
-    h2 = toy.name
-    = simple_format(@history.comment)
+    a href=toy_path(toy)
+      h2 = toy.name
+    = comment_format(@history)

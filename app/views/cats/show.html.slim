@@ -20,7 +20,7 @@
             - if history.toy.image_url.present?
               img src=image_proxy_url(history.toy.image_url)
             - else
-              = image_tag('noimage.pn')
+              = image_tag('noimage.png')
             p.thumbnail-text = history.toy.name
         - if history.rate == 1
           | 遊んだ！

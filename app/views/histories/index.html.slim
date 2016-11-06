@@ -37,7 +37,7 @@
         a href=user_path(cat.user)
           = cat.user.name
       br
-      = simple_format(history.comment)
+      = comment_format(history)
       - if cat.user == current_user
         br
         .pull-right
