@@ -29,7 +29,7 @@
         a.well-link href=new_toy_path おもちゃを追加
 
 - @toys.each_slice(4) do |slice|
-  .container
+  .container.thumbnail-row
     - slice.each do |toy|
       .col-lg-3.col-md-3.col-sm-12
         a href=toy_path(toy)
