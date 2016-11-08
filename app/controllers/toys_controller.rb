@@ -8,7 +8,8 @@ class ToysController < ApplicationController
       @tag = ActsAsTaggableOn::Tag.find(tag_id)
       @toys = Toy.joins(:taggings).
         where('taggings.tag_id = ?', tag_id).
-        order(updated_at: :desc)
+        order(updated_at: :desc).
+        page(params[:page])
     else
       @toys = Toy.order(updated_at: :desc).page(params[:page])
     end

@@ -8,6 +8,17 @@ class ToysTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'get /toys with tag' do
+    get '/toys', params: {tag: 1}
+    assert_response :success
+  end
+
+  test 'get /toys with missing tag' do
+    assert_raises(ActiveRecord::RecordNotFound) do
+      get '/toys', params: {tag: 2}
+    end
+  end
+
   test 'get /toys/id' do
     toy = toys(:one)
     get '/toys', params: {id: toy}
