@@ -1,18 +1,18 @@
 .container
-  .col-sm-9.col-md-9.col-lg-9
+  .col-sm-12.col-md-9.col-lg-9
     h1
       - if @toy.url.present?
         a href=@toy.url
           = @toy.name
       - else
         = @toy.name
-  .col-sm-1.col-md-1.col-lg-1
+  .col-sm-6.col-md-1.col-lg-1
     - if current_user.present?
       small
         = link_to '編集', edit_toy_path(@toy)
 
   - if current_user.present?
-    .col-sm-2.col-md-2.col-lg-2
+    .col-sm-6.col-md-2.col-lg-2
       a href=new_history_path(toy: @toy.id, rate: 1) data-role="button" type="button" 遊んだ
       a href=new_history_path(toy: @toy.id, rate: -1) data-role='button' type="button" ダメだった
 
@@ -32,7 +32,6 @@
 .container
   .col-sm-12.col-md-12.col-lg-12
     h2 遊んだ猫
-
 - @toy.histories.where(rate: 1).includes(cat: [:user]).each do |history|
   .container.history-row
     - cat = history.cat
