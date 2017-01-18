@@ -21,3 +21,9 @@ Disallow: /
 
 User-agent: Yandex
 Disallow: /
+
+user-agent:Daum
+Disallow: /
+
+user-agent:Daumoa
+Disallow: /
