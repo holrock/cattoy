@@ -12,3 +12,12 @@ Disallow: /
 
 User-agent: AhrefsBot
 Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: megaindex.com
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
