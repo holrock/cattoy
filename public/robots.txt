@@ -27,3 +27,6 @@ Disallow: /
 
 user-agent:Daumoa
 Disallow: /
+
+User-agent: WBSearchBot
+Disallow: /
