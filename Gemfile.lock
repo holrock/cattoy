@@ -286,7 +286,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   puma (~> 3.0)
-  rails (~> 5.0.0, >= 5.0.0.1)
+  rails (~> 5.0.1)
   rdf
   rdf-turtle
   rdf-vocab
