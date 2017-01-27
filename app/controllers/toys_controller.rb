@@ -14,7 +14,7 @@ class ToysController < ApplicationController
       @toys = Toy.order(updated_at: :desc).page(params[:page])
     end
     @votes = History.votes
-    @most_used_tags = ActsAsTaggableOn::Tag.most_used(10)
+    @most_used_tags = ActsAsTaggableOn::Tag.most_used(9)
   end
 
   def show
