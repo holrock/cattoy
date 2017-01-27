@@ -1,6 +1,9 @@
 # config valid only for current version of Capistrano
 lock '3.7.1'
 
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 set :application, 'cattoy'
 set :repo_url, 'https://github.com/holrock/cattoy.git'
 
