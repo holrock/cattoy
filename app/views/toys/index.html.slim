@@ -5,12 +5,15 @@
         = @tag.name
         | の検索結果
   - else
-    .col-lg-128.col-md-12.col-sm-12
+    .col-lg-12.col-md-12.col-sm-12
       ul.toy-tag-list
         - @most_used_tags.each do |tag|
           li.toy-tag-list-item
             a.toy-tag href=toys_path(tag: tag.id)
               = tag.name
+        li.toy-tag-list-item
+            a.toy-tag.toy-tag-more href=tags_path
+             | もっとみる
   - if current_user
     .col-lg-2.col-md-2.col-sm-12.pull-right
       .well

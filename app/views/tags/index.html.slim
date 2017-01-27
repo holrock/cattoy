@@ -1,0 +1,6 @@
+.container
+  .col-lg-12.col-md-12.col-sm-12
+    ul.toy-tag-list
+      - @tags.each do |tag|
+        li.toy-tag-list-item
+          = link_to tag.name, toys_path(tag: tag.id), class: 'toy-tag'
