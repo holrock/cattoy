@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025161119) do
+ActiveRecord::Schema.define(version: 2018_07_21_103055) do
 
   create_table "cats", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "user_id"
-    t.text     "image_url"
+    t.string "name", null: false
+    t.integer "user_id"
+    t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
   create_table "histories", force: :cascade do |t|
-    t.integer  "toy_id",                 null: false
-    t.integer  "cat_id",                 null: false
-    t.integer  "rate",       default: 0, null: false
-    t.string   "comment"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer "toy_id", null: false
+    t.integer "cat_id", null: false
+    t.integer "rate", default: 0, null: false
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["cat_id"], name: "index_histories_on_cat_id"
     t.index ["toy_id", "cat_id"], name: "index_histories_on_toy_id_and_cat_id", unique: true
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.string   "taggable_type"
-    t.integer  "taggable_id"
-    t.string   "tagger_type"
-    t.integer  "tagger_id"
-    t.string   "context",       limit: 128
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
     t.datetime "created_at"
     t.index ["context"], name: "index_taggings_on_context"
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
@@ -52,35 +52,35 @@ ActiveRecord::Schema.define(version: 20161025161119) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name"
+    t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "toys", force: :cascade do |t|
-    t.text     "name"
-    t.text     "description"
-    t.text     "url"
-    t.text     "image_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text "name"
+    t.text "description"
+    t.text "url"
+    t.text "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                       null: false
-    t.string   "crypted_password"
-    t.string   "salt"
-    t.string   "name",                                        null: false
+    t.string "email", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.string "name", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_me_token"
+    t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
-    t.string   "reset_password_token"
+    t.string "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.integer  "failed_logins_count",             default: 0
+    t.integer "failed_logins_count", default: 0
     t.datetime "lock_expires_at"
-    t.string   "unlock_token"
+    t.string "unlock_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"

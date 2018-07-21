@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -34,7 +34,7 @@ gem 'sorcery'
 gem 'slim-rails'
 gem 'exception_notification'
 gem 'slack-notifier'
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'rdf'
 gem 'rdf-turtle'
 gem 'rdf-vocab'
@@ -59,6 +59,3 @@ group :development do
   gem 'serverspec'
   gem 'unix-crypt'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
