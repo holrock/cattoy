@@ -11,9 +11,9 @@ set :migration_servers, -> { primary(fetch(:migration_role)) }
 set :conditionally_migrate, true
 set :assets_roles, [:app]
 #set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'config/master.key')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle')
 #set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-#set :linked_files, fetch(:linked_files, []).push('config/puma.rb', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
 # puma
 set :puma_conf,      "#{shared_path}/config/puma.rb"
