@@ -8,53 +8,17 @@ html
     title Cattoy
     = csrf_meta_tags
 
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
 
   body
-    section#navbar
-      .container
-        .col-lg-12.col-md-12.col-sm-12
-          nav#navigation
-            ul.navbar-container
-              li.navbar-brand
-                a.navbar-link href=root_path
-                  | Cattoy
-              li.open-menu
-                a href="#navigation" Open
-              li.close-menu
-                a href="#navbar" Close
-
-              div.navbar-collapse.pull-right
-                li.navbar-item
-                  a.navbar-link href=toys_path おもちゃ
-                li.navbar-item
-                  a.navbar-link href=histories_path 履歴
-
-                - if current_user
-                  li.navbar-item
-                    = link_to current_user.name, user_path(current_user.id), class: 'navbar-link'
-                  li.navbar-item
-                    = link_to "ログアウト", :logout, method: :post, class: 'navbar-link'
-                - else
-                  li.navbar-item
-                    = link_to "登録", new_user_path, class: 'navbar-link'
-                  li.navbar-item
-                    = link_to "ログイン", :login, class: 'navbar-link'
-
-    section
-      - if notice.present?
-        .container
-          .col-lg-12.col-md-12.col-sm-12
-            p#notice = notice
-
-      = render 'shared/header'
-      = yield
-
-    footer
-      .container
-        .col-lg-10.col-md-9.col-sm-6
-          a href='/' トップページ
-        .col-lg-2.col-md-3.col-sm-6
-          .pull-right
-            a href='/pages/about' Cattoyについて
+    #app
+      /app
+      v-app
+        v-toolbar color="indigo" dark=true fixed=true app=true
+          v-toolbar-title
+            | Cattoy
+        v-content
+          v-container fluid=true fill-height=true
+            v-layout justify-center=true align-center=true
+              = yield

@@ -1,0 +1,46 @@
+.container
+  - if @tag.present?
+    .col-lg-10.col-md-10.col-sm-10
+      h3.toy-tag-search-text
+        = @tag.name
+        | の検索結果
+  - else
+    .col-lg-12.col-md-12.col-sm-12
+      ul.toy-tag-list
+        - @most_used_tags.each do |tag|
+          li.toy-tag-list-item
+            a.toy-tag href=toys_path(tag: tag.id)
+              = tag.name
+        li.toy-tag-list-item
+            a.toy-tag.toy-tag-more href=tags_path
+             | ほかのタグ
+  - if current_user
+    .col-lg-2.col-md-2.col-sm-12.pull-right
+      .well
+        a.well-link href=new_toy_path おもちゃを追加
+
+- @toys.each_slice(4) do |slice|
+  .container.thumbnail-row
+    - slice.each do |toy|
+      .col-lg-3.col-md-3.col-sm-12
+        a href=toy_path(toy)
+          .thumbnail
+            - vote = @votes[toy.id]
+            - if vote
+              - if vote[1].nonzero?
+                .thumbnail-upvote
+                  | +
+                  = vote[1]
+              - if vote[2].nonzero?
+                .thumbnail-downvote
+                  | -
+                  = vote[2]
+            - if toy.image_url.present?
+              img src=image_proxy_url(toy.image_url, w: 240, h: 240)
+            - else
+              = image_tag 'noimage.png'
+            p.thumbnail-text = toy.name
+
+.container
+  .col-lg-12.col-md-12.col-sm-12
+    = paginate @toys
