@@ -59,4 +59,5 @@ group :development do
   gem 'itamae'
   gem 'serverspec'
   gem 'unix-crypt'
+  gem "capistrano-yarn"
 end

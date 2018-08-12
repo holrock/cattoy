@@ -63,6 +63,8 @@ GEM
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     capistrano3-puma (3.1.1)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -295,6 +297,7 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.6)
   capistrano-rails (~> 1.1)
+  capistrano-yarn
   capistrano3-puma
   coffee-rails (~> 4.2)
   exception_notification
